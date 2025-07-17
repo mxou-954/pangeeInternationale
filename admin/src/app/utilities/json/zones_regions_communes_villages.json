@@ -1,0 +1,767 @@
+{
+  "Ouest": {
+    "Dakar": {
+      "communes": [
+        {
+          "nom": "Dakar Commune 1",
+          "villages": [
+            "Dakar Commune 1 Village 1",
+            "Dakar Commune 1 Village 2",
+            "Dakar Commune 1 Village 3",
+            "Dakar Commune 1 Village 4"
+          ]
+        },
+        {
+          "nom": "Dakar Commune 2",
+          "villages": [
+            "Dakar Commune 2 Village 1",
+            "Dakar Commune 2 Village 2",
+            "Dakar Commune 2 Village 3"
+          ]
+        },
+        {
+          "nom": "Guediawaye Commune 1",
+          "villages": [
+            "Guediawaye Commune 1 Village 1",
+            "Guediawaye Commune 1 Village 2"
+          ]
+        },
+        {
+          "nom": "Guediawaye Commune 2",
+          "villages": [
+            "Guediawaye Commune 2 Village 1",
+            "Guediawaye Commune 2 Village 2",
+            "Guediawaye Commune 2 Village 3",
+            "Guediawaye Commune 2 Village 4"
+          ]
+        },
+        {
+          "nom": "Pikine Commune 1",
+          "villages": [
+            "Pikine Commune 1 Village 1",
+            "Pikine Commune 1 Village 2",
+            "Pikine Commune 1 Village 3"
+          ]
+        },
+        {
+          "nom": "Pikine Commune 2",
+          "villages": [
+            "Pikine Commune 2 Village 1",
+            "Pikine Commune 2 Village 2",
+            "Pikine Commune 2 Village 3"
+          ]
+        },
+        {
+          "nom": "Rufisque Commune 1",
+          "villages": [
+            "Rufisque Commune 1 Village 1",
+            "Rufisque Commune 1 Village 2",
+            "Rufisque Commune 1 Village 3",
+            "Rufisque Commune 1 Village 4"
+          ]
+        },
+        {
+          "nom": "Rufisque Commune 2",
+          "villages": [
+            "Rufisque Commune 2 Village 1",
+            "Rufisque Commune 2 Village 2",
+            "Rufisque Commune 2 Village 3",
+            "Rufisque Commune 2 Village 4",
+            "Rufisque Commune 2 Village 5"
+          ]
+        },
+        {
+          "nom": "Rufisque Commune 3",
+          "villages": [
+            "Rufisque Commune 3 Village 1",
+            "Rufisque Commune 3 Village 2",
+            "Rufisque Commune 3 Village 3",
+            "Rufisque Commune 3 Village 4",
+            "Rufisque Commune 3 Village 5"
+          ]
+        }
+      ]
+    },
+    "Thies": {
+      "communes": [
+        {
+          "nom": "Mbour Commune 1",
+          "villages": [
+            "Mbour Commune 1 Village 1",
+            "Mbour Commune 1 Village 2",
+            "Mbour Commune 1 Village 3",
+            "Mbour Commune 1 Village 4",
+            "Mbour Commune 1 Village 5"
+          ]
+        },
+        {
+          "nom": "Mbour Commune 2",
+          "villages": [
+            "Mbour Commune 2 Village 1",
+            "Mbour Commune 2 Village 2"
+          ]
+        },
+        {
+          "nom": "Thies Commune 1",
+          "villages": [
+            "Thies Commune 1 Village 1",
+            "Thies Commune 1 Village 2",
+            "Thies Commune 1 Village 3",
+            "Thies Commune 1 Village 4",
+            "Thies Commune 1 Village 5"
+          ]
+        },
+        {
+          "nom": "Thies Commune 2",
+          "villages": [
+            "Thies Commune 2 Village 1",
+            "Thies Commune 2 Village 2"
+          ]
+        },
+        {
+          "nom": "Thies Commune 3",
+          "villages": [
+            "Thies Commune 3 Village 1",
+            "Thies Commune 3 Village 2"
+          ]
+        },
+        {
+          "nom": "Tivaouane Commune 1",
+          "villages": [
+            "Tivaouane Commune 1 Village 1",
+            "Tivaouane Commune 1 Village 2",
+            "Tivaouane Commune 1 Village 3"
+          ]
+        },
+        {
+          "nom": "Tivaouane Commune 2",
+          "villages": [
+            "Tivaouane Commune 2 Village 1",
+            "Tivaouane Commune 2 Village 2",
+            "Tivaouane Commune 2 Village 3",
+            "Tivaouane Commune 2 Village 4",
+            "Tivaouane Commune 2 Village 5"
+          ]
+        },
+        {
+          "nom": "Tivaouane Commune 3",
+          "villages": [
+            "Tivaouane Commune 3 Village 1",
+            "Tivaouane Commune 3 Village 2",
+            "Tivaouane Commune 3 Village 3",
+            "Tivaouane Commune 3 Village 4",
+            "Tivaouane Commune 3 Village 5"
+          ]
+        },
+        {
+          "nom": "Tivaouane Commune 4",
+          "villages": [
+            "Tivaouane Commune 4 Village 1",
+            "Tivaouane Commune 4 Village 2",
+            "Tivaouane Commune 4 Village 3"
+          ]
+        }
+      ]
+    }
+  },
+  "Centre": {
+    "Diourbel": {
+      "communes": [
+        {
+          "nom": "Bambey Commune 1",
+          "villages": [
+            "Bambey Commune 1 Village 1",
+            "Bambey Commune 1 Village 2",
+            "Bambey Commune 1 Village 3"
+          ]
+        },
+        {
+          "nom": "Bambey Commune 2",
+          "villages": [
+            "Bambey Commune 2 Village 1",
+            "Bambey Commune 2 Village 2",
+            "Bambey Commune 2 Village 3",
+            "Bambey Commune 2 Village 4",
+            "Bambey Commune 2 Village 5"
+          ]
+        },
+        {
+          "nom": "Bambey Commune 3",
+          "villages": [
+            "Bambey Commune 3 Village 1",
+            "Bambey Commune 3 Village 2",
+            "Bambey Commune 3 Village 3"
+          ]
+        },
+        {
+          "nom": "Bambey Commune 4",
+          "villages": [
+            "Bambey Commune 4 Village 1",
+            "Bambey Commune 4 Village 2",
+            "Bambey Commune 4 Village 3",
+            "Bambey Commune 4 Village 4"
+          ]
+        },
+        {
+          "nom": "Diourbel Commune 1",
+          "villages": [
+            "Diourbel Commune 1 Village 1",
+            "Diourbel Commune 1 Village 2",
+            "Diourbel Commune 1 Village 3",
+            "Diourbel Commune 1 Village 4"
+          ]
+        },
+        {
+          "nom": "Diourbel Commune 2",
+          "villages": [
+            "Diourbel Commune 2 Village 1",
+            "Diourbel Commune 2 Village 2",
+            "Diourbel Commune 2 Village 3"
+          ]
+        },
+        {
+          "nom": "Mbacke Commune 1",
+          "villages": [
+            "Mbacke Commune 1 Village 1",
+            "Mbacke Commune 1 Village 2"
+          ]
+        },
+        {
+          "nom": "Mbacke Commune 2",
+          "villages": [
+            "Mbacke Commune 2 Village 1",
+            "Mbacke Commune 2 Village 2",
+            "Mbacke Commune 2 Village 3"
+          ]
+        },
+        {
+          "nom": "Mbacke Commune 3",
+          "villages": [
+            "Mbacke Commune 3 Village 1",
+            "Mbacke Commune 3 Village 2",
+            "Mbacke Commune 3 Village 3",
+            "Mbacke Commune 3 Village 4"
+          ]
+        }
+      ]
+    },
+    "Fatick": {
+      "communes": [
+        {
+          "nom": "Fatick Commune 1",
+          "villages": [
+            "Fatick Commune 1 Village 1",
+            "Fatick Commune 1 Village 2"
+          ]
+        },
+        {
+          "nom": "Fatick Commune 2",
+          "villages": [
+            "Fatick Commune 2 Village 1",
+            "Fatick Commune 2 Village 2",
+            "Fatick Commune 2 Village 3",
+            "Fatick Commune 2 Village 4",
+            "Fatick Commune 2 Village 5"
+          ]
+        },
+        {
+          "nom": "Foundiougne Commune 1",
+          "villages": [
+            "Foundiougne Commune 1 Village 1",
+            "Foundiougne Commune 1 Village 2",
+            "Foundiougne Commune 1 Village 3"
+          ]
+        },
+        {
+          "nom": "Foundiougne Commune 2",
+          "villages": [
+            "Foundiougne Commune 2 Village 1",
+            "Foundiougne Commune 2 Village 2",
+            "Foundiougne Commune 2 Village 3",
+            "Foundiougne Commune 2 Village 4",
+            "Foundiougne Commune 2 Village 5"
+          ]
+        }
+      ]
+    },
+    "Kaolack": {
+      "communes": [
+        {
+          "nom": "Kaolack Commune 1",
+          "villages": [
+            "Kaolack Commune 1 Village 1",
+            "Kaolack Commune 1 Village 2",
+            "Kaolack Commune 1 Village 3"
+          ]
+        },
+        {
+          "nom": "Kaolack Commune 2",
+          "villages": [
+            "Kaolack Commune 2 Village 1",
+            "Kaolack Commune 2 Village 2",
+            "Kaolack Commune 2 Village 3",
+            "Kaolack Commune 2 Village 4",
+            "Kaolack Commune 2 Village 5"
+          ]
+        },
+        {
+          "nom": "Kaolack Commune 3",
+          "villages": [
+            "Kaolack Commune 3 Village 1",
+            "Kaolack Commune 3 Village 2",
+            "Kaolack Commune 3 Village 3"
+          ]
+        }
+      ]
+    },
+    "Kaffrine": {
+      "communes": [
+        {
+          "nom": "Kaffrine Commune 1",
+          "villages": [
+            "Kaffrine Commune 1 Village 1",
+            "Kaffrine Commune 1 Village 2",
+            "Kaffrine Commune 1 Village 3",
+            "Kaffrine Commune 1 Village 4"
+          ]
+        },
+        {
+          "nom": "Kaffrine Commune 2",
+          "villages": [
+            "Kaffrine Commune 2 Village 1",
+            "Kaffrine Commune 2 Village 2",
+            "Kaffrine Commune 2 Village 3"
+          ]
+        }
+      ]
+    }
+  },
+  "Sud": {
+    "Kolda": {
+      "communes": [
+        {
+          "nom": "Kolda Commune 1",
+          "villages": [
+            "Kolda Commune 1 Village 1",
+            "Kolda Commune 1 Village 2"
+          ]
+        },
+        {
+          "nom": "Kolda Commune 2",
+          "villages": [
+            "Kolda Commune 2 Village 1",
+            "Kolda Commune 2 Village 2",
+            "Kolda Commune 2 Village 3",
+            "Kolda Commune 2 Village 4",
+            "Kolda Commune 2 Village 5"
+          ]
+        },
+        {
+          "nom": "Kolda Commune 3",
+          "villages": [
+            "Kolda Commune 3 Village 1",
+            "Kolda Commune 3 Village 2",
+            "Kolda Commune 3 Village 3",
+            "Kolda Commune 3 Village 4"
+          ]
+        },
+        {
+          "nom": "Velingara Commune 1",
+          "villages": [
+            "Velingara Commune 1 Village 1",
+            "Velingara Commune 1 Village 2",
+            "Velingara Commune 1 Village 3",
+            "Velingara Commune 1 Village 4"
+          ]
+        },
+        {
+          "nom": "Velingara Commune 2",
+          "villages": [
+            "Velingara Commune 2 Village 1",
+            "Velingara Commune 2 Village 2",
+            "Velingara Commune 2 Village 3",
+            "Velingara Commune 2 Village 4"
+          ]
+        },
+        {
+          "nom": "Médina Yoro Foulah Commune 1",
+          "villages": [
+            "Médina Yoro Foulah Commune 1 Village 1",
+            "Médina Yoro Foulah Commune 1 Village 2"
+          ]
+        },
+        {
+          "nom": "Médina Yoro Foulah Commune 2",
+          "villages": [
+            "Médina Yoro Foulah Commune 2 Village 1",
+            "Médina Yoro Foulah Commune 2 Village 2",
+            "Médina Yoro Foulah Commune 2 Village 3",
+            "Médina Yoro Foulah Commune 2 Village 4",
+            "Médina Yoro Foulah Commune 2 Village 5"
+          ]
+        },
+        {
+          "nom": "Médina Yoro Foulah Commune 3",
+          "villages": [
+            "Médina Yoro Foulah Commune 3 Village 1",
+            "Médina Yoro Foulah Commune 3 Village 2"
+          ]
+        },
+        {
+          "nom": "Médina Yoro Foulah Commune 4",
+          "villages": [
+            "Médina Yoro Foulah Commune 4 Village 1",
+            "Médina Yoro Foulah Commune 4 Village 2",
+            "Médina Yoro Foulah Commune 4 Village 3",
+            "Médina Yoro Foulah Commune 4 Village 4",
+            "Médina Yoro Foulah Commune 4 Village 5"
+          ]
+        }
+      ]
+    },
+    "Ziguinchor": {
+      "communes": [
+        {
+          "nom": "Bignogna Commune 1",
+          "villages": [
+            "Bignogna Commune 1 Village 1",
+            "Bignogna Commune 1 Village 2"
+          ]
+        },
+        {
+          "nom": "Bignogna Commune 2",
+          "villages": [
+            "Bignogna Commune 2 Village 1",
+            "Bignogna Commune 2 Village 2",
+            "Bignogna Commune 2 Village 3",
+            "Bignogna Commune 2 Village 4",
+            "Bignogna Commune 2 Village 5"
+          ]
+        },
+        {
+          "nom": "Zinguichor Commune 1",
+          "villages": [
+            "Zinguichor Commune 1 Village 1",
+            "Zinguichor Commune 1 Village 2",
+            "Zinguichor Commune 1 Village 3"
+          ]
+        },
+        {
+          "nom": "Zinguichor Commune 2",
+          "villages": [
+            "Zinguichor Commune 2 Village 1",
+            "Zinguichor Commune 2 Village 2",
+            "Zinguichor Commune 2 Village 3"
+          ]
+        },
+        {
+          "nom": "Zinguichor Commune 3",
+          "villages": [
+            "Zinguichor Commune 3 Village 1",
+            "Zinguichor Commune 3 Village 2",
+            "Zinguichor Commune 3 Village 3",
+            "Zinguichor Commune 3 Village 4",
+            "Zinguichor Commune 3 Village 5"
+          ]
+        }
+      ]
+    },
+    "Sedhiou": {
+      "communes": [
+        {
+          "nom": "Sedhiou Commune 1",
+          "villages": [
+            "Sedhiou Commune 1 Village 1",
+            "Sedhiou Commune 1 Village 2",
+            "Sedhiou Commune 1 Village 3",
+            "Sedhiou Commune 1 Village 4"
+          ]
+        },
+        {
+          "nom": "Sedhiou Commune 2",
+          "villages": [
+            "Sedhiou Commune 2 Village 1",
+            "Sedhiou Commune 2 Village 2"
+          ]
+        },
+        {
+          "nom": "Sedhiou Commune 3",
+          "villages": [
+            "Sedhiou Commune 3 Village 1",
+            "Sedhiou Commune 3 Village 2",
+            "Sedhiou Commune 3 Village 3",
+            "Sedhiou Commune 3 Village 4",
+            "Sedhiou Commune 3 Village 5"
+          ]
+        },
+        {
+          "nom": "Sedhiou Commune 4",
+          "villages": [
+            "Sedhiou Commune 4 Village 1",
+            "Sedhiou Commune 4 Village 2",
+            "Sedhiou Commune 4 Village 3"
+          ]
+        }
+      ]
+    }
+  },
+  "Nord": {
+    "Louga": {
+      "communes": [
+        {
+          "nom": "Kebemer Commune 1",
+          "villages": [
+            "Kebemer Commune 1 Village 1",
+            "Kebemer Commune 1 Village 2",
+            "Kebemer Commune 1 Village 3",
+            "Kebemer Commune 1 Village 4",
+            "Kebemer Commune 1 Village 5"
+          ]
+        },
+        {
+          "nom": "Kebemer Commune 2",
+          "villages": [
+            "Kebemer Commune 2 Village 1",
+            "Kebemer Commune 2 Village 2"
+          ]
+        },
+        {
+          "nom": "Kebemer Commune 3",
+          "villages": [
+            "Kebemer Commune 3 Village 1",
+            "Kebemer Commune 3 Village 2",
+            "Kebemer Commune 3 Village 3"
+          ]
+        },
+        {
+          "nom": "Linguere Commune 1",
+          "villages": [
+            "Linguere Commune 1 Village 1",
+            "Linguere Commune 1 Village 2",
+            "Linguere Commune 1 Village 3",
+            "Linguere Commune 1 Village 4"
+          ]
+        },
+        {
+          "nom": "Linguere Commune 2",
+          "villages": [
+            "Linguere Commune 2 Village 1",
+            "Linguere Commune 2 Village 2"
+          ]
+        },
+        {
+          "nom": "Louga Commune 1",
+          "villages": [
+            "Louga Commune 1 Village 1",
+            "Louga Commune 1 Village 2",
+            "Louga Commune 1 Village 3",
+            "Louga Commune 1 Village 4",
+            "Louga Commune 1 Village 5"
+          ]
+        },
+        {
+          "nom": "Louga Commune 2",
+          "villages": [
+            "Louga Commune 2 Village 1",
+            "Louga Commune 2 Village 2",
+            "Louga Commune 2 Village 3"
+          ]
+        },
+        {
+          "nom": "Louga Commune 3",
+          "villages": [
+            "Louga Commune 3 Village 1",
+            "Louga Commune 3 Village 2"
+          ]
+        },
+        {
+          "nom": "Louga Commune 4",
+          "villages": [
+            "Louga Commune 4 Village 1",
+            "Louga Commune 4 Village 2",
+            "Louga Commune 4 Village 3",
+            "Louga Commune 4 Village 4",
+            "Louga Commune 4 Village 5"
+          ]
+        }
+      ]
+    },
+    "Matam": {
+      "communes": [
+        {
+          "nom": "Kanel Commune 1",
+          "villages": [
+            "Kanel Commune 1 Village 1",
+            "Kanel Commune 1 Village 2",
+            "Kanel Commune 1 Village 3",
+            "Kanel Commune 1 Village 4"
+          ]
+        },
+        {
+          "nom": "Kanel Commune 2",
+          "villages": [
+            "Kanel Commune 2 Village 1",
+            "Kanel Commune 2 Village 2"
+          ]
+        },
+        {
+          "nom": "Matam Commune 1",
+          "villages": [
+            "Matam Commune 1 Village 1",
+            "Matam Commune 1 Village 2",
+            "Matam Commune 1 Village 3",
+            "Matam Commune 1 Village 4",
+            "Matam Commune 1 Village 5"
+          ]
+        },
+        {
+          "nom": "Matam Commune 2",
+          "villages": [
+            "Matam Commune 2 Village 1",
+            "Matam Commune 2 Village 2",
+            "Matam Commune 2 Village 3"
+          ]
+        },
+        {
+          "nom": "Matam Commune 3",
+          "villages": [
+            "Matam Commune 3 Village 1",
+            "Matam Commune 3 Village 2",
+            "Matam Commune 3 Village 3"
+          ]
+        }
+      ]
+    },
+    "Saint-Louis": {
+      "communes": [
+        {
+          "nom": "Podor Commune 1",
+          "villages": [
+            "Podor Commune 1 Village 1",
+            "Podor Commune 1 Village 2",
+            "Podor Commune 1 Village 3"
+          ]
+        },
+        {
+          "nom": "Podor Commune 2",
+          "villages": [
+            "Podor Commune 2 Village 1",
+            "Podor Commune 2 Village 2",
+            "Podor Commune 2 Village 3",
+            "Podor Commune 2 Village 4"
+          ]
+        },
+        {
+          "nom": "Podor Commune 3",
+          "villages": [
+            "Podor Commune 3 Village 1",
+            "Podor Commune 3 Village 2",
+            "Podor Commune 3 Village 3",
+            "Podor Commune 3 Village 4"
+          ]
+        },
+        {
+          "nom": "Podor Commune 4",
+          "villages": [
+            "Podor Commune 4 Village 1",
+            "Podor Commune 4 Village 2",
+            "Podor Commune 4 Village 3",
+            "Podor Commune 4 Village 4",
+            "Podor Commune 4 Village 5"
+          ]
+        },
+        {
+          "nom": "Saint-Louis Commune 1",
+          "villages": [
+            "Saint-Louis Commune 1 Village 1",
+            "Saint-Louis Commune 1 Village 2",
+            "Saint-Louis Commune 1 Village 3",
+            "Saint-Louis Commune 1 Village 4",
+            "Saint-Louis Commune 1 Village 5"
+          ]
+        },
+        {
+          "nom": "Saint-Louis Commune 2",
+          "villages": [
+            "Saint-Louis Commune 2 Village 1",
+            "Saint-Louis Commune 2 Village 2",
+            "Saint-Louis Commune 2 Village 3",
+            "Saint-Louis Commune 2 Village 4"
+          ]
+        }
+      ]
+    }
+  },
+  "Est": {
+    "Tambacounda": {
+      "communes": [
+        {
+          "nom": "Bakel Commune 1",
+          "villages": [
+            "Bakel Commune 1 Village 1",
+            "Bakel Commune 1 Village 2"
+          ]
+        },
+        {
+          "nom": "Bakel Commune 2",
+          "villages": [
+            "Bakel Commune 2 Village 1",
+            "Bakel Commune 2 Village 2",
+            "Bakel Commune 2 Village 3"
+          ]
+        },
+        {
+          "nom": "Tambacounda Commune 1",
+          "villages": [
+            "Tambacounda Commune 1 Village 1",
+            "Tambacounda Commune 1 Village 2",
+            "Tambacounda Commune 1 Village 3",
+            "Tambacounda Commune 1 Village 4"
+          ]
+        },
+        {
+          "nom": "Tambacounda Commune 2",
+          "villages": [
+            "Tambacounda Commune 2 Village 1",
+            "Tambacounda Commune 2 Village 2",
+            "Tambacounda Commune 2 Village 3",
+            "Tambacounda Commune 2 Village 4",
+            "Tambacounda Commune 2 Village 5"
+          ]
+        }
+      ]
+    },
+    "Kedougou": {
+      "communes": [
+        {
+          "nom": "Kedougou Commune 1",
+          "villages": [
+            "Kedougou Commune 1 Village 1",
+            "Kedougou Commune 1 Village 2",
+            "Kedougou Commune 1 Village 3",
+            "Kedougou Commune 1 Village 4",
+            "Kedougou Commune 1 Village 5"
+          ]
+        },
+        {
+          "nom": "Kedougou Commune 2",
+          "villages": [
+            "Kedougou Commune 2 Village 1",
+            "Kedougou Commune 2 Village 2",
+            "Kedougou Commune 2 Village 3",
+            "Kedougou Commune 2 Village 4",
+            "Kedougou Commune 2 Village 5"
+          ]
+        },
+        {
+          "nom": "Kedougou Commune 3",
+          "villages": [
+            "Kedougou Commune 3 Village 1",
+            "Kedougou Commune 3 Village 2",
+            "Kedougou Commune 3 Village 3"
+          ]
+        }
+      ]
+    }
+  }
+}
