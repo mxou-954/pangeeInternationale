@@ -1,0 +1,12 @@
+iframe
+durée
+formateur
+langue
+titre 
+descriiption
+difficulté
+tags
+
+note /5
+vues
+partage

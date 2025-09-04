@@ -1,0 +1,21 @@
+  const params = useParams();
+  const farmerId = params.farmerId;
+  const fieldId = params.fieldId;
+  const [fields, setFields] = useState();       
+
+useEffect(() => {
+  if (!fieldId) return;
+
+  fetch(`http://localhost:3005/field/one/${fieldId}`)
+    .then((response) => {
+      if (!response.ok) throw new Error("Erreur de chargement");
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Données reçues:", data);
+      setFields(data);
+    })
+    .catch((err) => {
+      console.error("Erreur fetch:", err);
+    });
+}, [fieldId]);

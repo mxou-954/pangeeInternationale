@@ -1,0 +1,456 @@
+"use client"
+
+import React, { useState } from 'react';
+import { Search, Filter, Package, Calendar, MapPin, DollarSign, AlertTriangle, CheckCircle, Wheat, Droplets, Wrench, Leaf, Plus, Eye, Edit3, Trash2 } from 'lucide-react';
+
+const InventoryDisplayPage = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  // Données d'exemple avec la structure complète
+  const stockItems = [
+    {
+      id: 1,
+      name: 'Blé dur d\'hiver',
+      category: 'semences',
+      subcategory: 'Céréales',
+      quantity: 2500,
+      unit: 'kg',
+      purchasePrice: 1200,
+      supplier: 'SemAgri Pro',
+      purchaseDate: '2024-03-15',
+      expirationDate: '2025-08-30',
+      storageLocation: 'Hangar A - Zone 1',
+      batchNumber: 'BLE2024-001',
+      alertStock: 500,
+      notes: 'Variété résistante à la sécheresse, semis octobre-novembre'
+    },
+    {
+      id: 2,
+      name: 'Engrais NPK 15-15-15',
+      category: 'engrais',
+      subcategory: 'Composés',
+      quantity: 205,
+      unit: 'kg',
+      purchasePrice: 850,
+      supplier: 'AgriNutrition France',
+      purchaseDate: '2024-02-20',
+      expirationDate: '2026-02-20',
+      storageLocation: 'Silo 2 - Compartiment B',
+      batchNumber: 'NPK-2024-05',
+      alertStock: 200,
+      notes: 'Tenir au sec, idéal pour céréales au printemps'
+    },
+    {
+      id: 3,
+      name: 'Herbicide Roundup Pro',
+      category: 'pesticides',
+      subcategory: 'Herbicides',
+      quantity: 35,
+      unit: 'litres',
+      purchasePrice: 320,
+      supplier: 'PhytoProtect Solutions',
+      purchaseDate: '2024-01-10',
+      expirationDate: '2024-12-31',
+      storageLocation: 'Local Phyto Sécurisé',
+      batchNumber: 'RDP-2024-12',
+      alertStock: 50,
+      notes: 'CRITIQUE - Usage autorisé jusqu\'au 31/12/2024, renouveler stock'
+    },
+    {
+      id: 4,
+      name: 'Tuyau irrigation Ø32mm',
+      category: 'equipements',
+      subcategory: 'Matériel irrigation',
+      quantity: 750,
+      unit: 'mètres',
+      purchasePrice: 750,
+      supplier: 'Irrigation Pro Systems',
+      purchaseDate: '2024-04-05',
+      expirationDate: null,
+      storageLocation: 'Entrepôt B - Rayonnage 3',
+      batchNumber: 'TUY-32-2024',
+      alertStock: 200,
+      notes: 'Résistant UV, garantie 10 ans, stock pour extension parcelle Est'
+    },
+    {
+      id: 5,
+      name: 'Maïs grain hybride DKC4590',
+      category: 'semences',
+      subcategory: 'Céréales',
+      quantity: 105,
+      unit: 'kg',
+      purchasePrice: 680,
+      supplier: 'SemAgri Pro',
+      purchaseDate: '2024-03-20',
+      expirationDate: '2025-03-20',
+      storageLocation: 'Hangar A - Zone 2',
+      batchNumber: 'MAIS-2024-03',
+      alertStock: 100,
+      notes: 'Hybride précoce FAO 290, semis avril-mai, 15 ha prévues'
+    },
+    {
+      id: 6,
+      name: 'Insecticide Karaté Zeon',
+      category: 'pesticides',
+      subcategory: 'Insecticides',
+      quantity: 8,
+      unit: 'litres',
+      purchasePrice: 240,
+      supplier: 'PhytoProtect Solutions',
+      purchaseDate: '2024-02-15',
+      expirationDate: '2025-02-15',
+      storageLocation: 'Local Phyto Sécurisé',
+      batchNumber: 'KAR-2024-08',
+      alertStock: 15,
+      notes: 'CRITIQUE - Efficace contre pucerons et thrips, renouveler urgemment'
+    },
+    {
+      id: 7,
+      name: 'Tournesol oléique Melody',
+      category: 'semences',
+      subcategory: 'Oléagineux',
+      quantity: 25,
+      unit: 'kg',
+      purchasePrice: 180,
+      supplier: 'SemAgri Pro',
+      purchaseDate: '2024-01-15',
+      expirationDate: '2024-07-15',
+      storageLocation: 'Hangar A - Zone 3',
+      batchNumber: 'TOUR-2024-01',
+      alertStock: 50,
+      notes: 'EXPIRÉ - Variété haut oléique, à remplacer avant prochaine campagne'
+    },
+    {
+      id: 8,
+      name: 'Fongicide Opus Team',
+      category: 'pesticides',
+      subcategory: 'Fongicides',
+      quantity: 18,
+      unit: 'litres',
+      purchasePrice: 420,
+      supplier: 'PhytoProtect Solutions',
+      purchaseDate: '2024-06-10',
+      expirationDate: '2024-09-15',
+      storageLocation: 'Local Phyto Sécurisé',
+      batchNumber: 'OPU-2024-15',
+      alertStock: 12,
+      notes: 'EXPIRE BIENTÔT - Traitement anti-septoriose, utiliser rapidement'
+    }
+  ];
+
+  const categories = {
+    all: { name: 'Tous les produits', icon: <Package className="w-4 h-4" />, color: 'text-gray-600' },
+    semences: { name: 'Semences', icon: <Wheat className="w-4 h-4" />, color: 'text-amber-600' },
+    engrais: { name: 'Engrais', icon: <Leaf className="w-4 h-4" />, color: 'text-green-600' },
+    pesticides: { name: 'Pesticides', icon: <Droplets className="w-4 h-4" />, color: 'text-blue-600' },
+    equipements: { name: 'Équipements', icon: <Wrench className="w-4 h-4" />, color: 'text-purple-600' }
+  };
+
+  // Calcul du niveau de stock selon les règles
+  const getStockLevel = (quantity, alertStock) => {
+    if (quantity < alertStock) return 'critical';
+    if (quantity <= alertStock + 10) return 'low';
+    return 'good';
+  };
+
+  // Calcul du statut d'expiration
+  const getExpirationStatus = (expirationDate) => {
+    if (!expirationDate) return null;
+    const expDate = new Date(expirationDate);
+    const today = new Date();
+    const oneMonthFromNow = new Date(today.getTime() + (30 * 24 * 60 * 60 * 1000));
+    
+    if (expDate < today) return 'expired';
+    if (expDate <= oneMonthFromNow) return 'expiring';
+    return 'good';
+  };
+
+  const getStockLevelColor = (level) => {
+    switch (level) {
+      case 'critical': return 'bg-red-100 text-red-800 border-red-200';
+      case 'low': return 'bg-orange-100 text-orange-800 border-orange-200';
+      case 'good': return 'bg-green-100 text-green-800 border-green-200';
+      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+    }
+  };
+
+  const getStockLevelText = (level) => {
+    switch (level) {
+      case 'critical': return 'Critique';
+      case 'low': return 'Faible';
+      case 'good': return 'Suffisant';
+      default: return 'Inconnu';
+    }
+  };
+
+  const getExpirationColor = (status) => {
+    switch (status) {
+      case 'expired': return 'bg-red-50 text-red-700 border border-red-200';
+      case 'expiring': return 'bg-orange-50 text-orange-700 border border-orange-200';
+      default: return 'bg-gray-50 text-gray-600';
+    }
+  };
+
+  const filteredItems = stockItems.filter(item => {
+    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         item.supplier.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         item.storageLocation.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <div className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                <Package className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-800">Inventaire des Stocks</h1>
+                <p className="text-gray-600">{filteredItems.length} produits disponibles</p>
+              </div>
+            </div>
+            <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2">
+              <Plus className="w-4 h-4" />
+              <span>Ajouter</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-6">
+        {/* Barre de recherche et filtres */}
+        <div className="bg-white rounded-xl shadow-sm border p-4 mb-6">
+          <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4">
+            <div className="flex-1 relative">
+              <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+              <input
+                type="text"
+                placeholder="Rechercher un produit, fournisseur ou lieu de stockage..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              />
+            </div>
+
+            <div className="flex space-x-2 overflow-x-auto">
+              {Object.entries(categories).map(([key, cat]) => (
+                <button
+                  key={key}
+                  onClick={() => setSelectedCategory(key)}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap flex items-center space-x-2 transition-colors ${
+                    selectedCategory === key
+                      ? 'bg-green-100 text-green-700 border border-green-200'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  {cat.icon}
+                  <span>{cat.name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Grille des cartes de stock */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {filteredItems.map((item) => {
+            const stockLevel = getStockLevel(item.quantity, item.alertStock);
+            const expirationStatus = getExpirationStatus(item.expirationDate);
+            
+            return (
+              <div key={item.id} className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                {/* En-tête de carte */}
+                <div className="p-4 border-b border-gray-100">
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-start space-x-3">
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${categories[item.category].color.replace('text-', 'bg-').replace('-600', '-100')}`}>
+                        {categories[item.category].icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-gray-800 truncate">{item.name}</h3>
+                        <p className="text-sm text-gray-500">{item.subcategory}</p>
+                      </div>
+                    </div>
+                    <div className="flex space-x-1">
+                      <button className="p-1 text-gray-400 hover:text-gray-600 transition-colors">
+                        <Eye className="w-4 h-4" />
+                      </button>
+                      <button className="p-1 text-gray-400 hover:text-gray-600 transition-colors">
+                        <Edit3 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Corps de carte */}
+                <div className="p-4 space-y-3">
+                  {/* Quantité et niveau de stock */}
+                  <div className="flex items-center justify-between">
+                    <div className="text-2xl font-bold text-gray-800">
+                      {item.quantity.toLocaleString()} <span className="text-sm font-normal text-gray-500">{item.unit}</span>
+                    </div>
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getStockLevelColor(stockLevel)}`}>
+                      {getStockLevelText(stockLevel)}
+                    </span>
+                  </div>
+
+                  {/* Seuil d'alerte */}
+                  <div className="flex items-center text-xs text-gray-500 bg-gray-50 p-2 rounded-lg">
+                    <AlertTriangle className="w-3 h-3 mr-2" />
+                    <span>Seuil d'alerte: {item.alertStock} {item.unit}</span>
+                  </div>
+
+                  {/* Stockage et lot */}
+                  <div className="flex items-center text-sm text-gray-600">
+                    <MapPin className="w-4 h-4 mr-2 text-gray-400" />
+                    <span className="truncate">{item.storageLocation}</span>
+                  </div>
+
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Package className="w-4 h-4 mr-2 text-gray-400" />
+                    <span className="truncate">Lot: {item.batchNumber}</span>
+                  </div>
+
+                  {/* Fournisseur */}
+                  <div className="flex items-center text-sm text-gray-600">
+                    <div className="w-4 h-4 mr-2 text-gray-400 flex items-center justify-center">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                    </div>
+                    <span className="truncate">{item.supplier}</span>
+                  </div>
+
+                  {/* Prix d'achat */}
+                  <div className="flex items-center text-sm">
+                    <DollarSign className="w-4 h-4 mr-2 text-gray-400" />
+                    <span className="font-medium text-green-600">{item.purchasePrice.toLocaleString()}€</span>
+                    <span className="text-gray-500 ml-1">
+                      ({(item.purchasePrice / item.quantity).toFixed(2)}€/{item.unit})
+                    </span>
+                  </div>
+
+                  {/* Statut d'expiration */}
+                  {item.expirationDate && (
+                    <div className={`flex items-center text-sm p-2 rounded-lg ${getExpirationColor(expirationStatus)}`}>
+                      <Calendar className="w-4 h-4 mr-2" />
+                      <span>
+                        {expirationStatus === 'expired' 
+                          ? `EXPIRÉ le ${new Date(item.expirationDate).toLocaleDateString('fr-FR')}`
+                          : expirationStatus === 'expiring'
+                          ? `Expire le ${new Date(item.expirationDate).toLocaleDateString('fr-FR')}`
+                          : `Expire le ${new Date(item.expirationDate).toLocaleDateString('fr-FR')}`
+                        }
+                      </span>
+                      {expirationStatus === 'expired' && (
+                        <AlertTriangle className="w-4 h-4 ml-auto text-red-500" />
+                      )}
+                      {expirationStatus === 'expiring' && (
+                        <AlertTriangle className="w-4 h-4 ml-auto text-orange-500" />
+                      )}
+                    </div>
+                  )}
+
+                  {/* Notes */}
+                  {item.notes && (
+                    <div className="text-xs text-gray-600 bg-blue-50 p-2 rounded-lg border border-blue-100">
+                      <span className="font-medium">Note:</span> {item.notes}
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* État vide */}
+        {filteredItems.length === 0 && (
+          <div className="text-center py-12">
+            <Package className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-gray-800 mb-2">Aucun produit trouvé</h3>
+            <p className="text-gray-500">Essayez de modifier vos critères de recherche ou de filtrage</p>
+          </div>
+        )}
+
+        {/* Statistiques rapides */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="bg-white rounded-xl p-4 shadow-sm border">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">
+                  {stockItems.filter(item => getStockLevel(item.quantity, item.alertStock) === 'good').length}
+                </p>
+                <p className="text-sm text-gray-500">Stock suffisant</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-4 shadow-sm border">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                <AlertTriangle className="w-5 h-5 text-orange-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">
+                  {stockItems.filter(item => getStockLevel(item.quantity, item.alertStock) === 'low').length}
+                </p>
+                <p className="text-sm text-gray-500">Stock faible</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-4 shadow-sm border">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                <AlertTriangle className="w-5 h-5 text-red-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">
+                  {stockItems.filter(item => getStockLevel(item.quantity, item.alertStock) === 'critical').length}
+                </p>
+                <p className="text-sm text-gray-500">Stock critique</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-4 shadow-sm border">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                <Calendar className="w-5 h-5 text-blue-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">
+                  {stockItems.filter(item => item.expirationDate && getExpirationStatus(item.expirationDate) === 'expiring').length}
+                </p>
+                <p className="text-sm text-gray-500">Expire bientôt</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-4 shadow-sm border">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                <AlertTriangle className="w-5 h-5 text-red-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">
+                  {stockItems.filter(item => item.expirationDate && getExpirationStatus(item.expirationDate) === 'expired').length}
+                </p>
+                <p className="text-sm text-gray-500">Expiré</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default InventoryDisplayPage;

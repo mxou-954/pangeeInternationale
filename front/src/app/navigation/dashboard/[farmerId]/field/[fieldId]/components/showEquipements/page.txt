@@ -1,0 +1,454 @@
+"use client"
+
+import React, { useState } from 'react';
+import { Search, Filter, Wrench, Calendar, MapPin, DollarSign, AlertTriangle, CheckCircle, Tractor, Droplets, Hammer, Settings, Plus, Eye, Edit3, Hash, Building } from 'lucide-react';
+
+const EquipmentDisplayPage = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  // Données d'exemple d'équipements
+  const equipmentItems = [
+    {
+      id: 1,
+      name: 'Tracteur John Deere 6125M',
+      category: 'tracteurs',
+      subcategory: 'Tracteur agricole',
+      brand: 'John Deere',
+      model: '6125M',
+      serialNumber: 'JD2024-789456',
+      quantity: 1,
+      purchasePrice: 85000,
+      supplier: 'Agri-Machines France',
+      purchaseDate: '2023-05-15',
+      lastMaintenanceDate: '2024-06-10',
+      nextMaintenanceDate: '2024-12-10',
+      location: 'Hangar principal',
+      condition: 'Très bon état',
+      notes: 'Révision complète effectuée, pneus neufs montés'
+    },
+    {
+      id: 2,
+      name: 'Système irrigation Rain Bird',
+      category: 'irrigation',
+      subcategory: 'Asperseurs',
+      brand: 'Rain Bird',
+      model: 'R50-PJ',
+      serialNumber: 'RB-2024-156',
+      quantity: 12,
+      purchasePrice: 2400,
+      supplier: 'Irrigation Solutions Pro',
+      purchaseDate: '2024-03-20',
+      lastMaintenanceDate: '2024-07-15',
+      nextMaintenanceDate: '2024-09-20',
+      location: 'Parcelle Est - Zone A',
+      condition: 'Excellent',
+      notes: 'Installation récente, programmation automatique activée'
+    },
+    {
+      id: 3,
+      name: 'Pulvérisateur Kuhn Altis 1200',
+      category: 'machines',
+      subcategory: 'Pulvérisateurs',
+      brand: 'Kuhn',
+      model: 'Altis 1200',
+      serialNumber: 'KU-ALT-2022-445',
+      quantity: 1,
+      purchasePrice: 35000,
+      supplier: 'Kuhn Center Bretagne',
+      purchaseDate: '2022-08-10',
+      lastMaintenanceDate: '2024-02-15',
+      nextMaintenanceDate: '2024-08-15',
+      location: 'Hangar machines',
+      condition: 'À réviser',
+      notes: 'MAINTENANCE DUE - Problème mineur sur rampe droite, révision annuelle requise'
+    },
+    {
+      id: 4,
+      name: 'Brouettes de chantier',
+      category: 'outils-manuels',
+      subcategory: 'Brouettes',
+      brand: 'Haemmerlin',
+      model: 'Expert Twin 160L',
+      serialNumber: '',
+      quantity: 4,
+      purchasePrice: 320,
+      supplier: 'Brico Agri',
+      purchaseDate: '2024-01-15',
+      lastMaintenanceDate: '',
+      nextMaintenanceDate: '',
+      location: 'Atelier - Rack outils',
+      condition: 'Neuf',
+      notes: 'Achat récent, roues anti-crevaison, capacité 160L'
+    },
+    {
+      id: 5,
+      name: 'Moissonneuse Case IH Axial 6130',
+      category: 'machines',
+      subcategory: 'Moissonneuses',
+      brand: 'Case IH',
+      model: 'Axial Flow 6130',
+      serialNumber: 'CIH-AF-2020-892',
+      quantity: 1,
+      purchasePrice: 185000,
+      supplier: 'Case IH Dealer Network',
+      purchaseDate: '2020-06-25',
+      lastMaintenanceDate: '2024-05-20',
+      nextMaintenanceDate: '2024-08-01',
+      location: 'Hangar moissonneuses',
+      condition: 'Révision nécessaire',
+      notes: 'MAINTENANCE DUE - Révision pré-moisson nécessaire, courroies à vérifier'
+    },
+    {
+      id: 6,
+      name: 'Pompe irrigation Grundfos',
+      category: 'irrigation',
+      subcategory: 'Pompes',
+      brand: 'Grundfos',
+      model: 'CR 32-4-2',
+      serialNumber: 'GR-CR32-2023-678',
+      quantity: 2,
+      purchasePrice: 3200,
+      supplier: 'Pompes & Irrigation SARL',
+      purchaseDate: '2023-04-12',
+      lastMaintenanceDate: '2024-01-30',
+      nextMaintenanceDate: '2025-01-30',
+      location: 'Station de pompage Nord',
+      condition: 'Bon état',
+      notes: 'Fonctionnement optimal, débit 32m³/h, installation en parallèle'
+    },
+    {
+      id: 7,
+      name: 'Tondeuse autoportée Kubota',
+      category: 'tracteurs',
+      subcategory: 'Tracteur-tondeuse',
+      brand: 'Kubota',
+      model: 'GR2120-II',
+      serialNumber: 'KB-GR-2021-234',
+      quantity: 1,
+      purchasePrice: 12500,
+      supplier: 'Kubota France',
+      purchaseDate: '2021-04-08',
+      lastMaintenanceDate: '2023-09-15',
+      nextMaintenanceDate: '2024-09-15',
+      location: 'Remise tracteurs',
+      condition: 'À réparer',
+      notes: 'MAINTENANCE CRITIQUE - Moteur fait du bruit, embrayage à réviser'
+    }
+  ];
+
+  const categories = {
+    all: { name: 'Tous les équipements', icon: <Wrench className="w-4 h-4" />, color: 'text-gray-600' },
+    tracteurs: { name: 'Tracteurs', icon: <Tractor className="w-4 h-4" />, color: 'text-blue-600' },
+    irrigation: { name: 'Irrigation', icon: <Droplets className="w-4 h-4" />, color: 'text-cyan-600' },
+    'outils-manuels': { name: 'Outils manuels', icon: <Hammer className="w-4 h-4" />, color: 'text-orange-600' },
+    machines: { name: 'Machines agricoles', icon: <Settings className="w-4 h-4" />, color: 'text-purple-600' }
+  };
+
+  // Fonction pour déterminer si la maintenance est due
+  const getMaintenanceStatus = (nextMaintenanceDate) => {
+    if (!nextMaintenanceDate) return null;
+    const nextDate = new Date(nextMaintenanceDate);
+    const today = new Date();
+    const oneMonthFromNow = new Date(today.getTime() + (30 * 24 * 60 * 60 * 1000));
+    
+    if (nextDate < today) return 'overdue';
+    if (nextDate <= oneMonthFromNow) return 'due';
+    return 'good';
+  };
+
+  // Couleurs selon l'état de l'équipement
+  const getConditionColor = (condition) => {
+    switch (condition.toLowerCase()) {
+      case 'neuf':
+      case 'excellent':
+        return 'bg-green-100 text-green-800 border-green-200';
+      case 'très bon état':
+      case 'très bon':
+      case 'bon état':
+        return 'bg-blue-100 text-blue-800 border-blue-200';
+      case 'état moyen':
+      case 'usure normale':
+      case 'usé':
+        return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+      case 'à réparer':
+      case 'à réviser':
+      case 'révision nécessaire':
+        return 'bg-orange-100 text-orange-800 border-orange-200';
+      case 'hors service':
+      case 'à remplacer':
+        return 'bg-red-100 text-red-800 border-red-200';
+      default:
+        return 'bg-gray-100 text-gray-800 border-gray-200';
+    }
+  };
+
+  // Couleurs selon le statut de maintenance
+  const getMaintenanceColor = (status) => {
+    switch (status) {
+      case 'overdue': return 'bg-red-50 text-red-700 border border-red-200';
+      case 'due': return 'bg-orange-50 text-orange-700 border border-orange-200';
+      default: return 'bg-gray-50 text-gray-600';
+    }
+  };
+
+  const filteredItems = equipmentItems.filter(item => {
+    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         item.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         item.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         item.supplier.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <div className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                <Wrench className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-800">Parc d'Équipements</h1>
+                <p className="text-gray-600">{filteredItems.length} équipements disponibles</p>
+              </div>
+            </div>
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2">
+              <Plus className="w-4 h-4" />
+              <span>Ajouter</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-6">
+        {/* Barre de recherche et filtres */}
+        <div className="bg-white rounded-xl shadow-sm border p-4 mb-6">
+          <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4">
+            <div className="flex-1 relative">
+              <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+              <input
+                type="text"
+                placeholder="Rechercher un équipement, marque, lieu ou fournisseur..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+
+            <div className="flex space-x-2 overflow-x-auto">
+              {Object.entries(categories).map(([key, cat]) => (
+                <button
+                  key={key}
+                  onClick={() => setSelectedCategory(key)}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap flex items-center space-x-2 transition-colors ${
+                    selectedCategory === key
+                      ? 'bg-blue-100 text-blue-700 border border-blue-200'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  {cat.icon}
+                  <span>{cat.name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Grille des cartes d'équipements */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {filteredItems.map((item) => {
+            const maintenanceStatus = getMaintenanceStatus(item.nextMaintenanceDate);
+            
+            return (
+              <div key={item.id} className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                {/* En-tête de carte */}
+                <div className="p-4 border-b border-gray-100">
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-start space-x-3">
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${categories[item.category].color.replace('text-', 'bg-').replace('-600', '-100')}`}>
+                        {categories[item.category].icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-gray-800 truncate">{item.name}</h3>
+                        <p className="text-sm text-gray-500">{item.subcategory}</p>
+                        <p className="text-xs text-gray-400">{item.brand} {item.model}</p>
+                      </div>
+                    </div>
+                    <div className="flex space-x-1">
+                      <button className="p-1 text-gray-400 hover:text-gray-600 transition-colors">
+                        <Eye className="w-4 h-4" />
+                      </button>
+                      <button className="p-1 text-gray-400 hover:text-gray-600 transition-colors">
+                        <Edit3 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Corps de carte */}
+                <div className="p-4 space-y-3">
+                  {/* Quantité et état */}
+                  <div className="flex items-center justify-between">
+                    <div className="text-xl font-bold text-gray-800">
+                      {item.quantity} <span className="text-sm font-normal text-gray-500">unité{item.quantity > 1 ? 's' : ''}</span>
+                    </div>
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getConditionColor(item.condition)}`}>
+                      {item.condition}
+                    </span>
+                  </div>
+
+                  {/* Localisation */}
+                  <div className="flex items-center text-sm text-gray-600">
+                    <MapPin className="w-4 h-4 mr-2 text-gray-400" />
+                    <span className="truncate">{item.location}</span>
+                  </div>
+
+                  {/* Numéro de série */}
+                  {item.serialNumber && (
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Hash className="w-4 h-4 mr-2 text-gray-400" />
+                      <span className="truncate font-mono text-xs">{item.serialNumber}</span>
+                    </div>
+                  )}
+
+                  {/* Fournisseur */}
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Building className="w-4 h-4 mr-2 text-gray-400" />
+                    <span className="truncate">{item.supplier}</span>
+                  </div>
+
+                  {/* Prix d'achat */}
+                  <div className="flex items-center text-sm">
+                    <DollarSign className="w-4 h-4 mr-2 text-gray-400" />
+                    <span className="font-medium text-green-600">{item.purchasePrice.toLocaleString()}€</span>
+                    {item.quantity > 1 && (
+                      <span className="text-gray-500 ml-1">
+                        ({(item.purchasePrice / item.quantity).toLocaleString()}€/unité)
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Statut de maintenance */}
+                  {item.nextMaintenanceDate && (
+                    <div className={`flex items-center text-sm p-2 rounded-lg ${getMaintenanceColor(maintenanceStatus)}`}>
+                      <Calendar className="w-4 h-4 mr-2" />
+                      <span>
+                        {maintenanceStatus === 'overdue' 
+                          ? `MAINTENANCE EN RETARD depuis le ${new Date(item.nextMaintenanceDate).toLocaleDateString('fr-FR')}`
+                          : maintenanceStatus === 'due'
+                          ? `Maintenance prévue le ${new Date(item.nextMaintenanceDate).toLocaleDateString('fr-FR')}`
+                          : `Prochaine maintenance: ${new Date(item.nextMaintenanceDate).toLocaleDateString('fr-FR')}`
+                        }
+                      </span>
+                      {maintenanceStatus === 'overdue' && (
+                        <AlertTriangle className="w-4 h-4 ml-auto text-red-500" />
+                      )}
+                      {maintenanceStatus === 'due' && (
+                        <AlertTriangle className="w-4 h-4 ml-auto text-orange-500" />
+                      )}
+                    </div>
+                  )}
+
+                  {/* Notes */}
+                  {item.notes && (
+                    <div className="text-xs text-gray-600 bg-blue-50 p-2 rounded-lg border border-blue-100">
+                      <span className="font-medium">Note:</span> {item.notes}
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* État vide */}
+        {filteredItems.length === 0 && (
+          <div className="text-center py-12">
+            <Wrench className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-gray-800 mb-2">Aucun équipement trouvé</h3>
+            <p className="text-gray-500">Essayez de modifier vos critères de recherche ou de filtrage</p>
+          </div>
+        )}
+
+        {/* Statistiques rapides */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="bg-white rounded-xl p-4 shadow-sm border">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">
+                  {equipmentItems.filter(item => ['neuf', 'excellent', 'très bon état', 'très bon', 'bon état'].includes(item.condition.toLowerCase())).length}
+                </p>
+                <p className="text-sm text-gray-500">Bon état</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-4 shadow-sm border">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                <AlertTriangle className="w-5 h-5 text-orange-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">
+                  {equipmentItems.filter(item => ['à réviser', 'révision nécessaire'].includes(item.condition.toLowerCase())).length}
+                </p>
+                <p className="text-sm text-gray-500">À réviser</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-4 shadow-sm border">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                <AlertTriangle className="w-5 h-5 text-red-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">
+                  {equipmentItems.filter(item => ['à réparer', 'hors service'].includes(item.condition.toLowerCase())).length}
+                </p>
+                <p className="text-sm text-gray-500">À réparer</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-4 shadow-sm border">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                <Calendar className="w-5 h-5 text-blue-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">
+                  {equipmentItems.filter(item => item.nextMaintenanceDate && getMaintenanceStatus(item.nextMaintenanceDate) === 'due').length}
+                </p>
+                <p className="text-sm text-gray-500">Maintenance due</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-4 shadow-sm border">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                <AlertTriangle className="w-5 h-5 text-red-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-800">
+                  {equipmentItems.filter(item => item.nextMaintenanceDate && getMaintenanceStatus(item.nextMaintenanceDate) === 'overdue').length}
+                </p>
+                <p className="text-sm text-gray-500">En retard</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default EquipmentDisplayPage;
