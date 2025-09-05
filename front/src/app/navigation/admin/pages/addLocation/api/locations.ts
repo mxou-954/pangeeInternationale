@@ -1,5 +1,5 @@
 // api/locations.ts
-const BASE = 'http://localhost:3005/locations';
+const BASE = process.env.NEXT_PUBLIC_API_URL!;
 
 // ————— Types de réponse (optionnels mais pratiques) —————
 export type CountryDTO = {
@@ -75,7 +75,7 @@ export const createCountry = (data: {
   code: string;
   flag?: string;
 }) =>
-  http(`${BASE}/countries`, {
+  http(`${BASE}/locations/countries`, {
     method: 'POST',
     body: JSON.stringify({
       name: data.name,
@@ -85,42 +85,42 @@ export const createCountry = (data: {
   });
 
 export const createRegion = (data: { name: string; countryId: string }) =>
-  http(`${BASE}/regions`, {
+  http(`${BASE}/locations/regions`, {
     method: 'POST',
     body: JSON.stringify({ name: data.name, countryId: data.countryId }),
   });
 
 export const createCommune = (data: { name: string; regionId: string }) =>
-  http(`${BASE}/communes`, {
+  http(`${BASE}/locations/communes`, {
     method: 'POST',
     body: JSON.stringify({ name: data.name, regionId: data.regionId }),
   });
 
 export const createVillage = (data: { name: string; communeId: string }) =>
-  http(`${BASE}/villages`, {
+  http(`${BASE}/locations/villages`, {
     method: 'POST',
     body: JSON.stringify({ name: data.name, communeId: data.communeId }),
   });
 
 // ————— READ (GET) —————
 export const getLocationsPayload = () =>
-  http<LocationsPayload>(`${BASE}/payload`);
+  http<LocationsPayload>(`${BASE}/locations/payload`);
 
-export const getCountries = () => http<CountryDTO[]>(`${BASE}/countries`);
+export const getCountries = () => http<CountryDTO[]>(`${BASE}/locations/countries`);
 
 export const getRegionsByCountry = (countryId: string) =>
   http<RegionDTO[]>(
-    `${BASE}/regions?countryId=${encodeURIComponent(countryId)}`
+    `${BASE}/locations/regions?countryId=${encodeURIComponent(countryId)}`
   );
 
 export const getCommunesByRegion = (regionId: string) =>
   http<CommuneDTO[]>(
-    `${BASE}/communes?regionId=${encodeURIComponent(regionId)}`
+    `${BASE}/locations/communes?regionId=${encodeURIComponent(regionId)}`
   );
 
 export const getVillagesByCommune = (communeId: string) =>
   http<VillageDTO[]>(
-    `${BASE}/villages?communeId=${encodeURIComponent(communeId)}`
+    `${BASE}/locations/villages?communeId=${encodeURIComponent(communeId)}`
   );
 
 // ——— PATCH ———
@@ -128,7 +128,7 @@ export const patchCountry = (
   id: string,
   data: Partial<{ name: string; code: string; flag: string }>
 ) =>
-  http(`${BASE}/countries/${encodeURIComponent(id)}`, {
+  http(`${BASE}/locations/countries/${encodeURIComponent(id)}`, {
     method: 'PATCH',
     body: JSON.stringify({
       name: data.name,
@@ -141,7 +141,7 @@ export const patchRegion = (
   id: string,
   data: Partial<{ name: string; countryId: string }>
 ) =>
-  http(`${BASE}/regions/${encodeURIComponent(id)}`, {
+  http(`${BASE}/locations/regions/${encodeURIComponent(id)}`, {
     method: 'PATCH',
     body: JSON.stringify({
       name: data.name,
@@ -153,7 +153,7 @@ export const patchCommune = (
   id: string,
   data: Partial<{ name: string; regionId: string }>
 ) =>
-  http(`${BASE}/communes/${encodeURIComponent(id)}`, {
+  http(`${BASE}/locations/communes/${encodeURIComponent(id)}`, {
     method: 'PATCH',
     body: JSON.stringify({
       name: data.name,
@@ -165,7 +165,7 @@ export const patchVillage = (
   id: string,
   data: Partial<{ name: string; communeId: string }>
 ) =>
-  http(`${BASE}/villages/${encodeURIComponent(id)}`, {
+  http(`${BASE}/locations/villages/${encodeURIComponent(id)}`, {
     method: 'PATCH',
     body: JSON.stringify({
       name: data.name,
@@ -175,13 +175,13 @@ export const patchVillage = (
 
 // ——— DELETE ———
 export const deleteCountry = (id: string) =>
-  http(`${BASE}/countries/${encodeURIComponent(id)}`, { method: 'DELETE' });
+  http(`${BASE}/locations/countries/${encodeURIComponent(id)}`, { method: 'DELETE' });
 
 export const deleteRegion = (id: string) =>
-  http(`${BASE}/regions/${encodeURIComponent(id)}`, { method: 'DELETE' });
+  http(`${BASE}/locations/regions/${encodeURIComponent(id)}`, { method: 'DELETE' });
 
 export const deleteCommune = (id: string) =>
-  http(`${BASE}/communes/${encodeURIComponent(id)}`, { method: 'DELETE' });
+  http(`${BASE}/locations/communes/${encodeURIComponent(id)}`, { method: 'DELETE' });
 
 export const deleteVillage = (id: string) =>
-  http(`${BASE}/villages/${encodeURIComponent(id)}`, { method: 'DELETE' });
+  http(`${BASE}/locations/villages/${encodeURIComponent(id)}`, { method: 'DELETE' });

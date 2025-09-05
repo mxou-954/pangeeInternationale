@@ -15,6 +15,9 @@ const iconUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png";
 const icon2xUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png";
 const shadowUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png";
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL!; 
+
+
 if (typeof window !== "undefined") {
   L.Icon.Default.mergeOptions({
     iconUrl,
@@ -71,7 +74,7 @@ async function fetchRegion(
   lang = 'fr',
   countryCode?: string
 ) {
-  const url = new URL('http://localhost:3005/location/region');
+  const url = new URL(`${BASE_URL}/location/region`);
   url.searchParams.set('country', country);
   url.searchParams.set('region', region);
   if (countryCode) url.searchParams.set('countryCode', countryCode);
@@ -95,7 +98,7 @@ async function fetchPlace(
   lang = 'fr',
   countryCode?: string
 ) {
-  const url = new URL('http://localhost:3005/location/place');
+  const url = new URL(`${BASE_URL}/location/place`);
   url.searchParams.set('country', country);
   if (region) url.searchParams.set('region', region);
   if (commune) url.searchParams.set('commune', commune);

@@ -14,6 +14,7 @@ import {
   Save,
   AlertCircle,
 } from 'lucide-react';
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL!; 
 
 const NewFieldModal = ({
   isOpen,
@@ -148,7 +149,7 @@ const NewFieldModal = ({
     });
 
     try {
-      const response = await fetch(`http://localhost:3005/field/${fieldId}`, {
+      const response = await fetch(`${BASE_URL}/field/${fieldId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
